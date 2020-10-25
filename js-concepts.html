@@ -1,0 +1,625 @@
+<script>
+
+	var myName = "Jakub"; // in-line comment
+	myName = "Kuba"; // overwrite a variable
+	let ourName = "Javascript";
+	const pi = 3.14;
+
+	/*
+	1. Data types:
+	undefined, null, boolean, string, symbol, number, object (k,v pair)
+
+	2. Variable declarations:
+	var spam- local to a function
+	spam = "x" - this is a global variable
+	let spam- only in scope where it was declared. immediate enclosing block
+	const spam- never changing. (Immutable)
+
+	Declaring variable:
+	var a;
+
+	3. Assigning a variable:
+	var a = 2;
+
+	*/
+	
+	console.log("hello "+myName); // This will be seen in js-console.
+	
+	properCamelCase = "Best way to name variables."
+
+	var mySum = 10 + 10;
+	var myDifference = 42  - 14;
+	// Can also: multiply with *, diviide with /, 
+	console.log(mySum);
+
+	mySum++; //increment by one.
+	mySum +=1; //This is doing the same. Can also do a *=2 to do multiplication
+	myDifference--;
+
+	var escapedString = "I am an \"escaped string\" ";
+	var escapedString2 = 'I am an "escaped string" ';
+
+
+	var myDecimal = 4.8;
+	var remainder;
+	remainder= 11 % 3;
+
+
+
+	function describeName(name){
+
+		console.log("Selected name: "+name);
+		nameLength = name.length;
+		console.log("Name length: "+ nameLength);
+		firstLetter = name[0];
+		console.log("First letter: "+ firstLetter);
+		lastLetter = name[nameLength-1];
+		console.log("Last letter: "+ lastLetter);
+		return null;
+	};
+
+
+	function sayHello(name, greeting){
+
+		var sentence = " ";
+		sentence += greeting + " " + name + "!";
+		return sentence;
+	};
+
+	
+	console.log(sayHello(name="Jakub",greeting="Hello"));
+
+	describeName("Jakub");
+
+
+var myArray = ["Jakub",23];
+var ourArray = [["Jakub",23],["Josh",25],["Hamza",28]];
+//Reassing first element
+ourArray[0]=["Kuba",24];
+console.log(ourArray);
+
+
+
+
+function assertEqual(objA, objB, strict) {
+	/*
+	 evaluate if two variables are equal.
+	strict equality optional.
+	*/
+	var feedback = "They seem different"
+
+	if (strict && objA === objB){
+			feedback = "They are the same under strict conditions";
+	}
+	else if (strict ==false && objA == objB){
+			feedback = "They are the same when converted to the same type";
+	}
+	return feedback
+
+}
+
+feedback = assertEqual('10',20/2, strict = false );
+console.log(feedback)
+feedback2 = assertEqual('10',20/2, strict = true);
+console.log(feedback2)
+
+
+function extremeTemperature(degrees) {
+
+	if (degrees <0 || degrees>30) {
+		return "Extreme temp of "+ degrees + " degrees!"
+	} else {
+		return "Not so extreme temp of "+ degrees+ "!"
+	}
+}
+
+console.log(extremeTemperature(degrees=-25))
+console.log(extremeTemperature(degrees=245))
+console.log(extremeTemperature(degrees=15))
+
+function assertTrue(isTrue) {
+	if (isTrue) {
+		return "Yes, it's true"
+	} else {
+		return "No, it's false"
+	}
+}
+
+
+console.log(assertTrue(0))
+console.log(assertTrue(1))
+
+
+
+/*
+// Array methods:
+
+add:
+	beggining: unshift
+	end push
+remove:
+	beggining: shift
+	end: pop
+array.push('elementToAdd') //Add an element to the beggining of an array
+array.pop() //remove last elelment and optionally return it
+array.shift() //same as pop but first element instead
+array.unshift() // add an element to the begginning of an array
+
+
+== equality under converted type
+=== strict equality
+
+*/
+
+var emptyArray=[];
+emptyArray.push('elem');
+emptyArray.pop('elem');
+console.log(emptyArray);
+
+
+
+
+
+
+// Switch statement
+
+function numToWord(val) {
+	/*
+	Function to pick from options
+	*/
+	var answer=" ";
+	switch(val) {
+		case 1: 
+			answer="one";
+			break;
+		case 2: 
+			answer = "two";
+			break;
+		case 3: 
+		case 4:
+		case 5:
+			answer= "three to five";
+			break;
+		default:
+			answer = "Num out of range";
+			break;
+	}
+	return answer;
+
+}
+
+
+console.log(numToWord(1));
+console.log(numToWord(4));
+console.log(numToWord(10));
+
+
+
+var myDog = {
+
+	"name" : "Melania",
+	"legs": 4,
+	"number of tails" : 1
+}
+
+myDog.wings = 4;
+console.log("wings added:")
+console.log(myDog.wings)
+delete myDog.wings;
+console.log("wings deleted:")
+console.log(myDog.wings)
+
+console.log(myDog.legs);
+console.log(myDog["number of tails"]);
+
+
+console.log(myDog.hasOwnProperty("legs"))
+console.log(myDog.hasOwnProperty("shoes"))
+
+function lookupNum(val) {
+
+	var result="";
+
+	var lookup= {
+		1: "one",
+		2: "two",
+		3: "three"
+	};
+	result = lookup[val];
+	return result;
+}
+
+console.log("Lookup 2: "+ lookupNum(1))
+
+
+
+var ourPets = [
+  {
+    animalType: "cat",
+    names: [
+      "Meowzer",
+      "Fluffy",
+      "Kit-Cat"
+    ]
+  },
+  {
+    animalType: "dog",
+    names: [
+      "Spot",
+      "Bowser",
+      "Frankie"
+    ]
+  }
+];
+ourPets[0].names[1]; // "Fluffy"
+ourPets[1].names[0]; // "Spot"
+
+
+
+// Setup
+var collection = {
+    "2548": {
+      "album": "Slippery When Wet",
+      "artist": "Bon Jovi",
+      "tracks": [ 
+        "Let It Rock", 
+        "You Give Love a Bad Name" 
+      ]
+    },
+    "2468": {
+      "album": "1999",
+      "artist": "Prince",
+      "tracks": [ 
+        "1999", 
+        "Little Red Corvette" 
+      ]
+    },
+    "1245": {
+      "artist": "Robert Palmer",
+      "tracks": [ ]
+    },
+    "5439": {
+      "album": "ABBA Gold"
+    }
+};
+collection
+// Keep a copy of the collection for tests
+var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+// Only change code below this line
+function updateRecords(id, prop, value) {
+  
+  if (value === " ") {
+  	delete collection[id][prop];
+    } else if (prop==="tracks") {
+      collection[id][prop] = collection[id][prop] || [];
+      collection[id][prop].push(value);
+    } else {
+      colelction[id][prop] = value;
+    }
+  return collection;
+}
+
+// Alter values below to test your code
+console.log(updateRecords(2548, "tracks", "Never gonna give you up"));
+
+
+var myArray = [];
+var i = 0
+
+while(i<10){
+	myArray.push(i);
+	i++;
+}
+
+console.log(myArray)
+
+
+// For loop: (initialise variable; condition; what to do at each iteration) 
+// Example:
+for (var i = 1; i<6; i++){
+console.log(i)
+
+}
+
+
+let word = 'format me'
+
+console.log(`This is string formated with backticks and dollar sign: ${word}`)
+
+
+var sumMe = [1,2,3,4,5]
+
+
+function sumArray(array){
+
+	var total = 0
+	for(var i=0; i<sumMe.length; i++) {
+	total += sumMe[i]
+}
+return total
+}
+
+
+console.log(sumArray(sumMe)) // 15
+
+
+var coinBags = [[1,2,0.5],[0.2,0.1],[1,1,2,2,2]]
+
+
+function sumElements(array) {
+
+	var sums = []
+	for(i=0;i<array.length;i++){
+		var sum = 0
+		for (var j=0; j<array[i].length; j++){
+			sum += array[i][j]
+		}
+	sums.push(sum)
+} 
+return sums
+}
+
+console.log(sumElements(coinBags))
+
+
+var i = 2
+
+do {
+	console.log("This will be executed at least once no matter if condition is met");
+	i++;
+} while (i<0)
+console.log(i)
+
+
+
+var contacts = [
+    {
+        "firstName": "Akira",
+        "lastName": "Laine",
+        "number": "0543236543",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+    },
+    {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "number": "0994372684",
+        "likes": ["Hogwarts", "Magic", "Hagrid"]
+    },
+    {
+        "firstName": "Sherlock",
+        "lastName": "Holmes",
+        "number": "0487345643",
+        "likes": ["Intruiging Cases", "Violin"]
+    },
+    {
+        "firstName": "Kristian",
+        "lastName": "Vos",
+        "number": "unknown",
+        "likes": ["Javascript", "Gaming", "Foxes"]
+    },
+];
+
+function lookUp( firstName, prop ){
+  for( var i = 0; i < contacts.length; i++ ){
+    if( firstName == contacts[i].firstName ) {
+      if( contacts[i].hasOwnProperty( prop ) ) {
+        return contacts[i][prop];
+      } else {
+        return "No such property";
+      }
+    }
+  }
+  return "No such contact";
+}
+
+
+lookUp('Kristian', 'likes');
+
+
+
+
+
+function randomFraction() {
+	// this wil lreturn between 0 and 0.(9)
+	return Math.random();
+}
+
+console.log(randomFraction());
+
+
+function roundNumber(number, up) {
+	if (up) {
+		return Math.ceil(number);
+	}
+	else {
+	return Math.floor(number) ;
+	}
+}
+
+
+console.log(roundNumber(4.8, up = true)); //5
+console.log(roundNumber(4.8, up = false)); //4
+
+
+function randBetween(minNum, MaxNum) {
+
+	return Math.floor(Math.random() * (maxNum - minNum +1))+minNum;
+
+}
+
+
+console.log(parseInt('5')); //convert string to integer
+
+
+function condCheck(a,b) {
+	// Quick notation forn if else alternative
+	return a===b ? "the same" : "Different";
+}
+
+console.log(condCheck(1,2/2));
+
+
+function checkSign(num) {
+	// condition ? ifTrue : ifFalse
+	return num>0 ? "positive" : num<0 ? "negative" : "zero"
+}
+
+
+console.log(checkSign(-1));
+console.log(checkSign(0));
+console.log(checkSign(1));
+
+
+
+// let does not allow to define a variable twice.
+//"use strict" allows to enter strict mode to catch common coding errors and unsafe actions.
+
+// var declarations are global or local if inside of a function.
+// let is limited to block statement that it was declared in.
+// const is a read only variable. cannot be reasigned.
+
+const NAMING = "Is usually in capital letters."
+// const variables cannot be changed but array indecies can be reasigned.
+
+const PI = 3.14
+
+Object.freeze(PI)
+
+//Method freeze() is used to freeze an object. Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties.
+
+try {
+
+	PI = 4.81;
+} catch (error) {
+	console.log(error);
+}
+
+console.log(PI)
+
+
+var magic = function() {
+	// This is an annomous function.
+	return Date();
+}
+
+var magic2 = () => {
+	// This is an arrow function. Same as annonomous but quicker to write.
+	return Date();
+}
+
+var magic3 = ()  => new Date();
+	// If returning one value, we don't need return and curly braces.
+
+
+// These two functions are the same.
+var myConcat = function(arr1,arr2) {
+	return arr1.concat(arr2);
+};
+
+var myConcat2 = (arr1,arr2) => arr1.concat(arr2);
+
+console.log(myConcat)
+console.log(myConcat2)
+
+// If a function needs to use another functions as one of it's arguments , consider using arrow function.
+
+
+// COnvert an array to only take the elements >0 and take their squares.
+
+const someNumbers = [-5, -3, 0, 2, 4, 16]
+
+const squareList=(arr) => {
+	const squaredInts = arr.filter(num  => Number.isInteger(num)&& num>0).map(x => x*x);
+	return squaredInts
+}
+
+console.log(squareList(someNumbers))
+
+const sum = (function() {
+	return function sum(...args) {
+		return args.reduce((a,b) => a+b, 0);
+	};
+})();
+console.log(sum(1,4,7,9))
+
+
+// To mkae a copy of an array, we can use the spread operator.
+
+const arr1 = ["Jan","Feb", "Mar"]
+let arr2;
+(function() {
+	arr2 = [...arr1];
+	arr1[0]="potato"
+
+	})();
+
+console.log(arr2); //Note that this stays unchanged because we took a copy of the original array.
+
+
+// Quick 3way of assigning things in an object:
+
+const TEMPERATURES = {
+	today: 15,
+	tomorrow:25
+};
+
+
+function getTmorrowTemp(tempObject) {
+	"use strict"
+	const{ tomorrow: tempOfTmrw} = tempObject;
+	return tempOfTmrw
+}
+
+console.log(getTmorrowTemp(TEMPERATURES))
+
+
+// to easily create a dict object:
+ const createPerson = (name, age, gender) => ( {name, age, gender});
+ console.log(createPerson("Zodiac Hasbro", 56,"male"));
+
+
+class  Person{
+	constructor(name){
+		this.name = name;
+	}
+	set newName(newName){
+		this.name = newName;  
+	}
+}
+
+var Jakub = new Person('Jacob')
+console.log(Jakub.name) //Jacob
+
+Jakub.name = "New name"
+
+console.log(Jakub.name) //Jacob
+
+
+// use import statement to import functions from other files.
+import {CapitalizeString} from "./file_to_be_imported.js"
+
+
+// use export to be able to use the function in other files
+
+const CapitalizeString = (string) => {
+
+	return string.charAt(0).toUppercase() + string.slice(1);
+
+}
+
+export {capitalizeString};
+// end of export
+
+// to import all, create object to store functions.
+import * as capitalizedStrings from "filename.js"
+
+// if dealing with defauly functions, no need for curly braces.
+import  from "math_functions"
+
+
+
+
+
+
+</script>
