@@ -1,20 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
+	<!-- Add icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <title>My Dashboard</title>
+
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body onload="setBackground(); startTime();">
+<body onload="setBackground(); startTime(); setQuote();">
 	<div id="randomBackground" ></div> 
 
-	<h1>My Dashboard</h1>
-	<div id="clock"></div>
-	<div id="macos"></div>
+
+
+	<div class="main-container">
+    
+    <div class="left-container">
+    	<div class="container-centre">
+	    	<!-- clock & date -->
+	    	<div id="clockdate">
+	  		<div class="clockdate-wrapper">
+	    	<div id="clock"></div>
+	    	<div id="date"></div>
+	    	<br>
+	    	<!-- Add icons -->
+			<a href="https://facebook.com" class="fa fa-facebook"></a>
+			<a href="https://youtube.com" class="fa fa-youtube"></a>
+	  		<a href="https://linkedin.com" class="fa fa-linkedin"></a>
+		  	<a href="https://reddit.com" class="fa fa-reddit"></a>
+			</div>
+		</div>
+	</div>
+
+
+    </div>
+    <div class="right-container">  
+    	<div class="container-centre">
+    	<span style="font-family:Arial">
+    		<button onclick="setBackground()">Change wallpaper</button>
+    		<div id="macos"></div>
+    		<br>
+
+	
+    		<button onclick="setQuote()">Change quote</button>
+			<blockquote><p class="quotation"> 
+			 	<div id="quote"></div>
+			 </p>
+			<footer>
+				<div id="author"></div>
+			</p>
+			</footer>
+			</blockquote> 
+			
+
+			
+		</span>
+	</div>
+    </div>
+	</div>
+
+	
 	<script src="main.js"> </script>
+	
+
+
 </body>
-<button onclick="setBackground()">Change wallpaper</button>
+
 
 </html>

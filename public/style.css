@@ -1,12 +1,158 @@
+
+body {
+  background-color: lightblue;
+}
+
 #randomBackground{
   /* BOX MODEL */
   width: 100%;
   height: 450px;
   border: 1px solid black;
   
-  /* ENHANCEMENT */
+  /* This will be modyfied by .js */
   background-image: url('https://512pixels.net/downloads/macos-wallpapers-thumbs/10-0_10.1--thumb.png');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;  
+}
+
+.clockdate-wrapper {
+    background-color: #fff;
+    padding:25px;
+    max-width:350px;
+    width:100%;
+    text-align:center;
+    border-radius:5px;
+    margin:0 auto;
+}
+#clock{
+    background-color:#333;
+    font-family: sans-serif;
+    font-size:60px;
+    text-shadow:0px 0px 1px #fff;
+    color:#fff;
+}
+#clock span {
+    color:#888;
+    text-shadow:0px 0px 1px #333;
+    font-size:30px;
+    position:relative;
+    top:-27px;
+    left:-10px;
+}
+#date {
+    letter-spacing:10px;
+    font-size:14px;
+    font-family:arial,sans-serif;
+    color:#333;
+}
+
+
+.main-container {
+    display: flex;
+    width: 100%;
+    height: 65%;
+    border: 1px solid black;
+}
+.left-container {
+    flex: 0 1 50%;
+    position: relative;
+    border: 1px solid black;
+    background: #fff;
+    padding: .5em;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+.right-container {
+    flex: 0 1 50%;
+    position: relative;
+    border: 1px solid black;
+    background: #fff;
+    padding: .5em;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.container-center {
+  width: 50%;
+  height: 50%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 15px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+blockquote{
+  font-size: 15px;
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: .5em 10px;
+  padding: 0 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  padding: 10px 20px;
+  line-height: 1.4;
+  width:650px; /* or whatever width you want. */
+  max-width:650px
+}
+
+blockquote:before {
+  content: open-quote;
+  display: inline;
+  height: 0;
+  line-height: 0;
+  left: -10px;
+  position: relative;
+  top: 30px;
+  color: #ccc;
+  font-size: 3em;
+}
+
+p{
+  margin: 0;
+}
+
+footer{
+  margin:0;
+  text-align: right;
+  font-size: 1em;
+  font-style: italic;
 }
