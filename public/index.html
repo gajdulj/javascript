@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>A JavaScript project</title>
+  <title>My Dashboard</title>
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-  <h1>A JavaScript project</h1>
-  <div id="app"></div>
-  <script src="main.js"></script>
+
+<body onload="setBackground(); startTime();">
+	<div id="randomBackground" ></div> 
+
+	<h1>My Dashboard</h1>
+	<div id="clock"></div>
+	<div id="macos"></div>
+	<script src="main.js"> </script>
 </body>
+<button onclick="setBackground()">Change wallpaper</button>
+
 </html>
